@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link th:href="@{/css/bootstrap/bootstrap.css}" rel="stylesheet">
+    <script th:src="@{/js/bootstrap/bootstrap.bundle.js}" type="text/javascript"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Calcular promedio</h2>
+        <form th:action="@{/calcularPromedio}" th:object="${promedioModel}" method="post">
+            <div class="mb-3">
+                <label for="nota1" class="form-label">Nota 1:</label>
+                <input type="number" class="form-control" id="nota1" th:field="*{nota1}" required/>
+            </div>
+            <div class="mb-3">
+                <label for="nota2" class="form-label">Nota 2:</label>
+                <input type="number" class="form-control" id="nota2" th:field="*{nota2}" required/>
+            </div>
+            <div class="mb-3">
+                <label for="nota3" class="form-label">Nota 3:</label>
+                <input type="number" class="form-control" id="nota3" th:field="*{nota3}" required/>
+            </div>
+            <button type="submit" class="btn btn-primary">Calcular promedio</button>
+        </form>
+
+        <div th:if="${promedioModel.promedio != null}" class="mt-4">
+            <h3>Resultado</h3>
+            <p th:text="'El promedio es: ' + ${promedioModel.promedio}"></p>
+            <p th:text="'El resultado es: ' + ${promedioModel.resultado}"></p>
+        </div>
+    </div>
+</body>
+</html>
