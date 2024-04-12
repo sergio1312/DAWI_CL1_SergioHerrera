@@ -21,11 +21,11 @@ public class DescuentosController {
         double precioFinal = 0.0;
 
         if (descuentosModel.getCantidad() > 20) {
-            precioFinal = descuentosModel.getPrecioUnitario() * descuentosModel.getCantidad() * 0.9; // 10% discount for more than 20 items
+            precioFinal = descuentosModel.getPrecioUnitario() * descuentosModel.getCantidad() * 0.9;
         } else if (descuentosModel.getCantidad() > 10) {
-            precioFinal = descuentosModel.getPrecioUnitario() * descuentosModel.getCantidad() * 0.95; // 5% discount for 11 to 20 items
+            precioFinal = descuentosModel.getPrecioUnitario() * descuentosModel.getCantidad() * 0.95;
         } else {
-            precioFinal = descuentosModel.getPrecioUnitario() * descuentosModel.getCantidad(); // No discount for 10 or fewer items
+            precioFinal = descuentosModel.getPrecioUnitario() * descuentosModel.getCantidad();
         }
 
         descuentosModel.setPrecioFinal(precioFinal);
